@@ -10,8 +10,8 @@ public class FragmentsFactory {
             case INFO:
                 fragment = new InfoFragment();
                 break;
-            case LOGIN_REGISTRATION:
-                fragment = new LoginRegistrationFragment();
+            case AUTHORIZATION:
+                fragment = new AuthorizationFragment();
                 break;
             case ROLE_CHOICE:
                 break;

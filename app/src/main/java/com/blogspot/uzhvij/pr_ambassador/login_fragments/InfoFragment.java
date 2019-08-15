@@ -7,19 +7,22 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.blogspot.uzhvij.pr_ambassador.R;
 
 public class InfoFragment extends BaseFragment {
 
     public InfoFragment() {
-        nextFragmentTag = FragmentsTags.ROLE_CHOICE;
+        nextFragmentTag = FragmentsTags.AUTHORIZATION;
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_info, container, false);
+        View view = inflater.inflate(R.layout.fragment_info, container, false);
+        Button buttonNextFragment = view.findViewById(R.id.buttonNextFragment);
+        buttonNextFragment.setOnClickListener(this);
+        return view;
     }
 }
