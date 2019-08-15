@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import com.blogspot.uzhvij.pr_ambassador.R;
 
 public class LogoFragment extends BaseFragment {
-    public LogoFragment(){
+    public LogoFragment() {
         nextFragmentTag = FragmentsTags.INFO;
     }
 

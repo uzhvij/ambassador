@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 
 import com.blogspot.uzhvij.pr_ambassador.R;
 
-public class InfoFragment extends Fragment {
+public class InfoFragment extends BaseFragment {
 
     public InfoFragment() {
-        // Required empty public constructor
+        nextFragmentTag = FragmentsTags.ROLE_CHOICE;
     }
 
     @Override
@@ -22,5 +22,4 @@ public class InfoFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_info, container, false);
     }
-
 }

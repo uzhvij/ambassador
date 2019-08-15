@@ -31,7 +31,8 @@ public class MainActivity extends AppCompatActivity implements FragmentSwitch {
         Log.d(TAG, "setFragmentToActivity: start");
         currentFragment = FragmentsFactory.getFragment(nextFragmentTag);
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.main_activity_frame_layout, currentFragment)
+                .replace(R.id.main_activity_frame_layout, currentFragment)
+                .addToBackStack(null)
                 .commit();
     }
 
@@ -46,6 +47,6 @@ public class MainActivity extends AppCompatActivity implements FragmentSwitch {
     public void switchFragment() {
         nextFragmentTag = currentFragment.getNextFragmentTag();
         Log.d(TAG, "switchFragment: " + nextFragmentTag.toString());
-        //setFragmentToActivity();
+        setFragmentToActivity();
     }
 }

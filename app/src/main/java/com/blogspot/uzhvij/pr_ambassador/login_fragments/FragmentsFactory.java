@@ -8,6 +8,7 @@ public class FragmentsFactory {
                 fragment = new LogoFragment();
                 break;
             case INFO:
+                fragment = new InfoFragment();
                 break;
         }
         return fragment;
