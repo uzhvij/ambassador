@@ -3,7 +3,7 @@ package com.blogspot.uzhvij.pr_ambassador.api_classes;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class SmsResponse {
+public class BaseResponse {
 
     @SerializedName("message")
     @Expose
@@ -38,5 +38,4 @@ public class SmsResponse {
     public void setCode(String code) {
         this.code = code;
     }
-
 }

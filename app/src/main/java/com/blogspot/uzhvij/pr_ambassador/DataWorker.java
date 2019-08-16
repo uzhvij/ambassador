@@ -5,10 +5,12 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.blogspot.uzhvij.pr_ambassador.api_classes.APIBuilder;
-import com.blogspot.uzhvij.pr_ambassador.api_classes.SmsBody;
-import com.blogspot.uzhvij.pr_ambassador.api_classes.SmsResponse;
+import com.blogspot.uzhvij.pr_ambassador.api_classes.AmbassadorApi;
+import com.blogspot.uzhvij.pr_ambassador.api_classes.BaseResponse;
 import com.blogspot.uzhvij.pr_ambassador.api_classes.LoginBody;
-import com.blogspot.uzhvij.pr_ambassador.api_classes.LoginResponse;
+import com.blogspot.uzhvij.pr_ambassador.api_classes.RegistrationBody;
+import com.blogspot.uzhvij.pr_ambassador.api_classes.RequestTypes;
+import com.blogspot.uzhvij.pr_ambassador.api_classes.SmsBody;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -18,54 +20,56 @@ public class DataWorker {
     private static final DataWorker instance = new DataWorker();
     private static final String TAG = "myLogs";
     private static Context mainContext;
+    private static AmbassadorApi serverApi;
+
 
     private DataWorker() {
         APIBuilder.initialization();
+        serverApi = APIBuilder.getApi();
     }
 
-    public static DataWorker getInstance(Context context){
+    public static DataWorker getInstance(Context context) {
         mainContext = context;
         return instance;
     }
 
-    public void getSms(){
-        SmsBody smsBody = SmsBody.getInstance();
-        smsBody.setPhone(User.getInstance().getPhoneNumber());
-        APIBuilder.getApi().createUserSms(smsBody).enqueue(
-                new Callback<SmsResponse>() {
-                    @Override
-                    public void onResponse(Call<SmsResponse> call, Response<SmsResponse> response) {
-                        Log.d(TAG, "onResponse: " + response.body().getMessage() + " "
-                                + response.body().getCode());
-                    }
-
-                    @Override
-                    public void onFailure(Call<SmsResponse> call, Throwable t) {
-                        Log.d(TAG, "onFailure: " + t.getMessage());
-                    }
-                }
-        );
+    public void makeRequest(RequestTypes type) {
+        Call<BaseResponse> call = null;
+        switch (type) {
+            case REGISTRATION:
+                call = serverApi.userRegistration(RegistrationBody.getInstance());
+                break;
+            case SMS:
+                SmsBody smsBody = SmsBody.getInstance();
+                smsBody.setPhone(User.getInstance().getPhoneNumber());
+                call = serverApi.createUserSms(smsBody);
+                break;
+            case LOGIN:
+                call = serverApi.userLogin(LoginBody.getInstance());
+                break;
+        }
+        getResponseData(call);
     }
 
-    public void startLogin(){
-        APIBuilder.getApi().userLogin(LoginBody.getInstance()).enqueue(
-                new Callback<LoginResponse>() {
-                    @Override
-                    public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                        try {
-                            Log.d(TAG, "onResponse: " + response.body().getMessage() + " "
-                                    + response.body().getCode());
-                            Toast.makeText(mainContext, response.body().getMessage(), Toast.LENGTH_LONG).show();
-                        }catch (NullPointerException e){
-                            Toast.makeText(mainContext, "UNSUCCESS", Toast.LENGTH_LONG).show();
-                        }
-                    }
+    private void getResponseData(Call call){
+        call.enqueue(new Callback<BaseResponse>() {
+                         @Override
+                         public void onResponse(Call<BaseResponse> call, Response<BaseResponse> response) {
+                             try {
+                                 Log.d(TAG, "onResponse: " + response.body().getMessage() + " "
+                                         + response.body().getCode());
+                                 Toast.makeText(mainContext, response.body().getMessage(), Toast.LENGTH_LONG).show();
+                             } catch (NullPointerException e) {
+                                 Log.d(TAG, "onResponse: error" + e.getMessage());
+                                 Toast.makeText(mainContext, "UNSUCCESS", Toast.LENGTH_LONG).show();
+                             }
+                         }
 
-                    @Override
-                    public void onFailure(Call<LoginResponse> call, Throwable t) {
-                        Log.d(TAG, "onFailure: " + t.getMessage());
-                    }
-                }
+                         @Override
+                         public void onFailure(Call<BaseResponse> call, Throwable t) {
+                             Log.d(TAG, "onFailure: " + t.getMessage());
+                         }
+                     }
         );
     }
 }

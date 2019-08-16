@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.blogspot.uzhvij.pr_ambassador.DataWorker;
 import com.blogspot.uzhvij.pr_ambassador.R;
 import com.blogspot.uzhvij.pr_ambassador.User;
+import com.blogspot.uzhvij.pr_ambassador.api_classes.RequestTypes;
 
 public class LoginFragment extends BaseFragment {
     private EditText editTextPhoneNumber;
@@ -44,7 +45,7 @@ public class LoginFragment extends BaseFragment {
     public void onClick(View view) {
         User.getInstance().setPhoneNumber(editTextPhoneNumber.getText().toString());
         User.getInstance().setPassword(editTextPassword.getText().toString());
-        DataWorker.getInstance(context).startLogin();
+        DataWorker.getInstance(context).makeRequest(RequestTypes.LOGIN);
         super.onClick(view);
     }
 

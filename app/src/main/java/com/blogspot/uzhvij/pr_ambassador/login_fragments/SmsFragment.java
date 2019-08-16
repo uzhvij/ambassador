@@ -2,13 +2,11 @@ package com.blogspot.uzhvij.pr_ambassador.login_fragments;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.blogspot.uzhvij.pr_ambassador.DataWorker;
 import com.blogspot.uzhvij.pr_ambassador.R;
 
 public class SmsFragment extends BaseFragment{
@@ -33,6 +31,6 @@ public class SmsFragment extends BaseFragment{
         }
 
     private void getCodeAgain(View view){
-        DataWorker.getInstance(context).getSms();
+        //DataWorker.getInstance(context).getSms();
     }
 }

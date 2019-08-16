@@ -2,14 +2,18 @@ package com.blogspot.uzhvij.pr_ambassador.api_classes;
 
 public class RegistrationBody {
 
-    private String firstname;
-    private String lastname;
-    private String email;
-    private String password;
-    private String phone;
-    private String lat;
-    private String lng;
-    private String imei;
+    private String firstname = "Ivan";
+    private String lastname = "Ivanov";
+    private String email = "uzhvij@ukr.net";
+    private String password = "55555lff";
+    private String phone = "+380636495501";
+    private String lat = "46.469391";
+    private String lng = "30.740883";
+    private String imei = "35-419002-389644-3";
+
+    public static RegistrationBody getInstance() {
+        return new RegistrationBody();
+    }
 
     public String getFirstname() {
         return firstname;

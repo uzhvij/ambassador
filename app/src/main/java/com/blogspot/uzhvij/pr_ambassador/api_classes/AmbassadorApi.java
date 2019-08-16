@@ -6,8 +6,11 @@ import retrofit2.http.POST;
 
 public interface AmbassadorApi {
     @POST("create_user_sms.php")
-    Call<SmsResponse> createUserSms(@Body SmsBody smsBody);
+    Call<BaseResponse> createUserSms(@Body SmsBody smsBody);
 
     @POST("login.php")
-    Call<LoginResponse> userLogin(@Body LoginBody loginBody);
+    Call<BaseResponse> userLogin(@Body LoginBody loginBody);
+
+    @POST("create_user.php")
+    Call<BaseResponse> userRegistration(@Body RegistrationBody registrationBody);
 }

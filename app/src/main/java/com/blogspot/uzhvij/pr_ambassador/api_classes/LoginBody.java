@@ -1,7 +1,7 @@
 package com.blogspot.uzhvij.pr_ambassador.api_classes;
 
 public class LoginBody {
-    private String email = "ivi5@gmail.com";
+    private String email = "uzhvij@ukr.net";
     private String password = "55555lff";
 
     public static LoginBody getInstance() {

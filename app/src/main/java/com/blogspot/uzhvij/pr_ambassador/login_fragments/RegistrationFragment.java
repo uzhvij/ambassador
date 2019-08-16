@@ -24,4 +24,10 @@ public class RegistrationFragment extends BaseFragment {
         buttonLogin.setOnClickListener(this);
         return view;
     }
+
+    @Override
+    public void onClick(View v) {
+        //DataWorker.getInstance(context).startRegistration();
+        //super.onClick(v);
+    }
 }
