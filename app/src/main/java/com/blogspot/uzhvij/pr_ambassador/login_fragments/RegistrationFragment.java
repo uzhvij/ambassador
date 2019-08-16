@@ -8,7 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.blogspot.uzhvij.pr_ambassador.DataWorker;
 import com.blogspot.uzhvij.pr_ambassador.R;
+import com.blogspot.uzhvij.pr_ambassador.api_classes.RequestTypes;
 
 public class RegistrationFragment extends BaseFragment {
 
@@ -27,7 +29,7 @@ public class RegistrationFragment extends BaseFragment {
 
     @Override
     public void onClick(View v) {
-        //DataWorker.getInstance(context).startRegistration();
+        DataWorker.getInstance(context).makeRequest(RequestTypes.REGISTRATION);
         //super.onClick(v);
     }
 }

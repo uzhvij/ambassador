@@ -2,11 +2,8 @@ package com.blogspot.uzhvij.pr_ambassador;
 
 public class User {
     private static final User instance = new User();
-    private String phoneNumber;
+    private static String phoneNumber;
     private String password;
-
-    private User() {
-    }
 
     public static User getInstance() {
         return instance;

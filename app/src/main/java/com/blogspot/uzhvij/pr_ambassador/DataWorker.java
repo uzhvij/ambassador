@@ -34,30 +34,33 @@ public class DataWorker {
     }
 
     public void makeRequest(RequestTypes type) {
-        Call<BaseResponse> call = null;
+        Call response = null;
         switch (type) {
             case REGISTRATION:
-                call = serverApi.userRegistration(RegistrationBody.getInstance());
+                response = serverApi.userRegistration(RegistrationBody.getInstance());
                 break;
             case SMS:
                 SmsBody smsBody = SmsBody.getInstance();
                 smsBody.setPhone(User.getInstance().getPhoneNumber());
-                call = serverApi.createUserSms(smsBody);
+                response = serverApi.createUserSms(smsBody);
                 break;
             case LOGIN:
-                call = serverApi.userLogin(LoginBody.getInstance());
+                response = serverApi.userLogin(LoginBody.getInstance());
                 break;
         }
-        getResponseData(call);
+        getResponseData(response);
     }
 
-    private void getResponseData(Call call){
-        call.enqueue(new Callback<BaseResponse>() {
+    private void getResponseData(Call response){
+        response.enqueue(
+                new Callback<BaseResponse>() {
                          @Override
                          public void onResponse(Call<BaseResponse> call, Response<BaseResponse> response) {
                              try {
+                                 //ошибка при входе - response.body() = null
                                  Log.d(TAG, "onResponse: " + response.body().getMessage() + " "
-                                         + response.body().getCode());
+                                         + response.body().getCode() + " " + response.body().getError()
+                                  + "\n " + response.toString());
                                  Toast.makeText(mainContext, response.body().getMessage(), Toast.LENGTH_LONG).show();
                              } catch (NullPointerException e) {
                                  Log.d(TAG, "onResponse: error" + e.getMessage());
