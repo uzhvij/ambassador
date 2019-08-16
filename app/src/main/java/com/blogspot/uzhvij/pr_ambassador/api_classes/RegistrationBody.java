@@ -4,12 +4,12 @@ public class RegistrationBody {
 
     private String firstname = "Ivan";
     private String lastname = "Ivanov";
-    private String email = "uzhvij@ukr.net";
-    private String password = "55555lff";
-    private String phone = "+380636495501";
-    private String lat = "46.469391";
-    private String lng = "30.740883";
-    private String imei = "35-419002-389644-3";
+    private String email = "wwwuzhvij@ukr.net";
+    private String password = "ytttttttt";
+    private String phone = "www+380636495501";
+    private String lat = "";
+    private String lng = "";
+    private String imei = "www35-419002-389644-3";
 
     public static RegistrationBody getInstance() {
         return new RegistrationBody();

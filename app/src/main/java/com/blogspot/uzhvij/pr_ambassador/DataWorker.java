@@ -37,6 +37,7 @@ public class DataWorker {
         Call response = null;
         switch (type) {
             case REGISTRATION:
+                Log.d(TAG, "makeRequest: " + RegistrationBody.getInstance().getEmail());
                 response = serverApi.userRegistration(RegistrationBody.getInstance());
                 break;
             case SMS:
@@ -58,9 +59,9 @@ public class DataWorker {
                          public void onResponse(Call<BaseResponse> call, Response<BaseResponse> response) {
                              try {
                                  //ошибка при входе - response.body() = null
+                                 Log.d(TAG, "onResponse: " + response.toString());
                                  Log.d(TAG, "onResponse: " + response.body().getMessage() + " "
-                                         + response.body().getCode() + " " + response.body().getError()
-                                  + "\n " + response.toString());
+                                         + response.body().getCode() + " " + response.body().getError());
                                  Toast.makeText(mainContext, response.body().getMessage(), Toast.LENGTH_LONG).show();
                              } catch (NullPointerException e) {
                                  Log.d(TAG, "onResponse: error" + e.getMessage());
