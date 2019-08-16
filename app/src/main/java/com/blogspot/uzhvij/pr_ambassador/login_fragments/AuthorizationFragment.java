@@ -34,12 +34,10 @@ public class AuthorizationFragment extends BaseFragment {
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.buttonLogin:
-                DataWorker.getInstance().startRegistration(editTextPhoneNumber.getText().toString());
                 setNextFragmentTag(FragmentsTags.LOGIN);
                 break;
             case R.id.buttonRegister:
-                DataWorker.getInstance().startRegistration("");
-                //setNextFragmentTag(FragmentsTags.REGISTRATION);
+                setNextFragmentTag(FragmentsTags.REGISTRATION);
                 break;
         }
         super.onClick(view);

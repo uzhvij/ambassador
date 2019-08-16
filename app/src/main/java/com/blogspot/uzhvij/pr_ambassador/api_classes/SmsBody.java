@@ -1,11 +1,11 @@
 package com.blogspot.uzhvij.pr_ambassador.api_classes;
 
-public class CreateUserSmsBody {
+public class SmsBody {
 
-    private String phone = "636495501";
+    private String phone = "";
 
-    public static CreateUserSmsBody getInstance() {
-        return new CreateUserSmsBody();
+    public static SmsBody getInstance() {
+        return new SmsBody();
     }
 
     public String getPhone() {

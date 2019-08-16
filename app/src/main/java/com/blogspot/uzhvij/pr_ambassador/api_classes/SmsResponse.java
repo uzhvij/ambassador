@@ -3,7 +3,7 @@ package com.blogspot.uzhvij.pr_ambassador.api_classes;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class CreateUserSmsRespons {
+public class SmsResponse {
 
     @SerializedName("message")
     @Expose

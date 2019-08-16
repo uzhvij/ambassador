@@ -27,12 +27,12 @@
         android:layout_marginStart="20dp"/>
 
     <EditText
-        android:id="@+id/editTextCode"
+        android:id="@+id/editTextPhoneNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="center"
-        android:inputType="number" />
+        android:inputType="phone" />
 
     <EditText
         android:id="@+id/editTextPassword"

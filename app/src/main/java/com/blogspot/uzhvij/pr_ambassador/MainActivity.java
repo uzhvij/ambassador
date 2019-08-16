@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity implements FragmentSwitch {
     private static final String TAG = "myLogs";
     private static final String IS_LOGIN = "is_login";
     private static boolean userIsLogin = false;
-    private FragmentsTags nextFragmentTag = FragmentsTags.AUTHORIZATION;
+    private FragmentsTags nextFragmentTag = FragmentsTags.LOGO;
     private BaseFragment currentFragment;
 
     @Override
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements FragmentSwitch {
         setContentView(R.layout.activity_main);
 
         setFragmentToActivity();
-        //defineNextFragment();
+        defineNextFragment();
     }
 
     private void setFragmentToActivity() {

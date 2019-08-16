@@ -7,11 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import com.blogspot.uzhvij.pr_ambassador.DataWorker;
 import com.blogspot.uzhvij.pr_ambassador.R;
+import com.blogspot.uzhvij.pr_ambassador.User;
 
 public class LoginFragment extends BaseFragment {
+    private EditText editTextPhoneNumber;
+    private EditText editTextPassword;
 
     public LoginFragment() {
         nextFragmentTag = FragmentsTags.SMS;
@@ -21,6 +26,8 @@ public class LoginFragment extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_login, container, false);
+        editTextPhoneNumber = view.findViewById(R.id.editTextPhoneNumber);
+        editTextPassword = view.findViewById(R.id.editTextPassword);
         Button buttonContinue = view.findViewById(R.id.buttonEnter);
         TextView textViewForgotPassword = view.findViewById(R.id.textViewForgotPassword);
         buttonContinue.setOnClickListener(this);
@@ -33,7 +40,15 @@ public class LoginFragment extends BaseFragment {
         return view;
     }
 
-    private void forgotPassword(View view){
+    @Override
+    public void onClick(View view) {
+        User.getInstance().setPhoneNumber(editTextPhoneNumber.getText().toString());
+        User.getInstance().setPassword(editTextPassword.getText().toString());
+        DataWorker.getInstance(context).startLogin();
+        super.onClick(view);
+    }
+
+    private void forgotPassword(View view) {
 
     }
 }
