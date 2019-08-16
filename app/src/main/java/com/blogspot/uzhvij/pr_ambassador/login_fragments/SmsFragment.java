@@ -11,28 +11,29 @@ import com.blogspot.uzhvij.pr_ambassador.DataWorker;
 import com.blogspot.uzhvij.pr_ambassador.R;
 import com.blogspot.uzhvij.pr_ambassador.api_classes.RequestTypes;
 
-public class SmsFragment extends BaseFragment{
+public class SmsFragment extends BaseFragment {
 
     public SmsFragment() {
-        nextFragmentTag = FragmentsTags.ROLE_CHOICE;    }
+        nextFragmentTag = FragmentsTags.ROLE_CHOICE;
+    }
 
-        @Override
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-            View view = inflater.inflate(R.layout.fragment_sms, container, false);
-            Button buttonContinue = view.findViewById(R.id.buttonContinue);
-            Button buttonGetCode = view.findViewById(R.id.buttonGetCode);
-            buttonContinue.setOnClickListener(this);
-            buttonGetCode.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    getCodeAgain(view);
-                }
-            });
-            return view;
-        }
+        View view = inflater.inflate(R.layout.fragment_sms, container, false);
+        Button buttonContinue = view.findViewById(R.id.buttonContinue);
+        Button buttonGetCode = view.findViewById(R.id.buttonGetCode);
+        buttonContinue.setOnClickListener(this);
+        buttonGetCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getCodeAgain(view);
+            }
+        });
+        return view;
+    }
 
-    private void getCodeAgain(View view){
+    private void getCodeAgain(View view) {
         DataWorker.getInstance(context).makeRequest(RequestTypes.SMS);
     }
 }

@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class APIBuilder {
     private static AmbassadorApi ambassadorApi;
 
-    public static void initialization(){
+    public static void initialization() {
         String uri = "https://pr-ambassador.com/api/";
         Retrofit retrofit = new Retrofit.Builder().baseUrl(uri)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -14,7 +14,7 @@ public class APIBuilder {
         ambassadorApi = retrofit.create(AmbassadorApi.class);
     }
 
-    public static AmbassadorApi getApi(){
+    public static AmbassadorApi getApi() {
         return ambassadorApi;
     }
 }

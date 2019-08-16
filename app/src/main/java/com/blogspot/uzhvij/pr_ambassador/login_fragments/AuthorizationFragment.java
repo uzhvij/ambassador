@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.blogspot.uzhvij.pr_ambassador.DataWorker;
 import com.blogspot.uzhvij.pr_ambassador.R;
 
 public class AuthorizationFragment extends BaseFragment {
@@ -32,7 +31,7 @@ public class AuthorizationFragment extends BaseFragment {
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.buttonLogin:
                 setNextFragmentTag(FragmentsTags.LOGIN);
                 break;
