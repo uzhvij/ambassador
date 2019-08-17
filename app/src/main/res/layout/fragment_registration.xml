@@ -16,7 +16,8 @@
         android:layout_weight="1"
         android:text="Регистрация"
         android:textAlignment="center"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textViewTitle"
@@ -29,7 +30,6 @@
         android:id="@+id/editTextPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:ems="10"
         android:inputType="textVisiblePassword" />
 
@@ -37,8 +37,8 @@
         android:id="@+id/editTextRepeatPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:ems="10"
+        android:layout_marginTop="30dp"
         android:hint="  Повторите пароль"
         android:inputType="textVisiblePassword" />
 
@@ -46,6 +46,10 @@
         android:id="@+id/buttonLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/BlueButtons"
+        android:background="@drawable/blue_button_styles"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
         android:text="Войти >" />
 
     <TextView
@@ -54,6 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="200dp"
-        android:text=".? Поддержка" />
+        android:text=" ❓ Поддержка"
+        android:textColor="@android:color/darker_gray" />
 
 </LinearLayout>

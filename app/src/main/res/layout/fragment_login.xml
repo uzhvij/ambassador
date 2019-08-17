@@ -12,12 +12,13 @@
         android:id="@+id/textViewHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="50dp"
         android:layout_weight="1"
         android:text="Вход"
         android:textAlignment="center"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="50dp"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textViewContext"
@@ -38,9 +39,9 @@
         android:id="@+id/editTextPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="  пароль"
-        android:layout_weight="1"
         android:inputType="textPassword" />
 
     <TextView
@@ -49,21 +50,24 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="20dp"
-        android:text=".? Поддержка" />
+        android:text=" ❓ Поддержка"
+        android:textColor="@android:color/darker_gray"/>
 
     <TextView
         android:id="@+id/textViewForgotPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Забыли пароль?" />
+        android:text="@string/Underline" />
 
     <Button
         android:id="@+id/buttonEnter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="200dp"
-        android:layout_weight="1"
+        android:layout_marginBottom="250dp"
+        android:layout_marginTop="20dp"
+        style="@style/BlueButtons"
+        android:background="@drawable/blue_button_styles"
         android:text="Войти >" />
 
 </LinearLayout>

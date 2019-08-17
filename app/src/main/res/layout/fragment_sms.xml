@@ -16,7 +16,8 @@
         android:layout_weight="1"
         android:text="ВАМ ПРИШЛО СМС С КОДОМ"
         android:textAlignment="center"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textViewContext"
@@ -42,13 +43,17 @@
         android:layout_weight="1"
         android:ems="10"
         android:gravity="center"
-        android:inputType="number" />
+        android:inputType="number"
+        android:hint=".  .  .  ."/>
 
     <Button
         android:id="@+id/buttonContinue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        style="@style/BlueButtons"
+        android:background="@drawable/blue_button_styles"
         android:text="Продолжить" />
 
     <TextView
@@ -56,13 +61,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text=".? Поддержка" />
+        android:text=" ❓ Поддержка"
+        android:textColor="@android:color/darker_gray" />
 
     <TextView
         android:id="@+id/textViewQuestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:layout_marginTop="30dp"
         android:gravity="center"
         android:text="Не пришло СМС с кодом?" />
 
@@ -71,7 +78,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:layout_weight="1"
+        style="@style/WhiteButtons"
+        android:background="@drawable/white_button_styles"
         android:text="Получить код повторно >" />
 
 </LinearLayout>
