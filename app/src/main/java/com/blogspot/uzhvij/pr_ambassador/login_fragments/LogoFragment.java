@@ -14,9 +14,11 @@ public class LogoFragment extends BaseFragment {
         nextFragmentTag = FragmentsTags.INFO;
     }
 
+    private static final String TAG = "myLogs";
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_logo, container, false);
         ImageView imageView = view.findViewById(R.id.imageView);
         imageView.setOnClickListener(this);

@@ -14,12 +14,13 @@ public class AuthorizationFragment extends BaseFragment {
     private EditText editTextPhoneNumber;
 
     public AuthorizationFragment() {
-        nextFragmentTag = FragmentsTags.AUTHORIZATION;
+        nextFragmentTag = FragmentsTags.LOGIN;
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_authorization, container, false);
         editTextPhoneNumber = view.findViewById(R.id.editTextPhoneNumber);
         Button buttonLogin = view.findViewById(R.id.buttonLogin);
@@ -39,6 +40,7 @@ public class AuthorizationFragment extends BaseFragment {
                 setNextFragmentTag(FragmentsTags.REGISTRATION);
                 break;
         }
+        mainActivityListener.setNextFragmentTag(nextFragmentTag);
         super.onClick(view);
     }
 

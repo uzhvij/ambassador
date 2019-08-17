@@ -26,6 +26,7 @@ public class LoginFragment extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_login, container, false);
         editTextPhoneNumber = view.findViewById(R.id.editTextPhoneNumber);
         editTextPassword = view.findViewById(R.id.editTextPassword);

@@ -20,6 +20,7 @@ public class SmsFragment extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_sms, container, false);
         Button buttonContinue = view.findViewById(R.id.buttonContinue);
         Button buttonGetCode = view.findViewById(R.id.buttonGetCode);
