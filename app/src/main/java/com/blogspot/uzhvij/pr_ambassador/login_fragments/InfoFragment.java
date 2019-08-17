@@ -3,7 +3,6 @@ package com.blogspot.uzhvij.pr_ambassador.login_fragments;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +19,7 @@ public class InfoFragment extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_info, container, false);
         Button buttonNextFragment = view.findViewById(R.id.buttonNextFragment);
         buttonNextFragment.setOnClickListener(this);

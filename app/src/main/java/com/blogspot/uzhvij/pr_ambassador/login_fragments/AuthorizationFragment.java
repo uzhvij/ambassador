@@ -6,22 +6,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 
 import com.blogspot.uzhvij.pr_ambassador.R;
 
 public class AuthorizationFragment extends BaseFragment {
-    private EditText editTextPhoneNumber;
 
     public AuthorizationFragment() {
-        nextFragmentTag = FragmentsTags.AUTHORIZATION;
+        nextFragmentTag = FragmentsTags.LOGIN;
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_authorization, container, false);
-        editTextPhoneNumber = view.findViewById(R.id.editTextPhoneNumber);
         Button buttonLogin = view.findViewById(R.id.buttonLogin);
         Button buttonRegister = view.findViewById(R.id.buttonRegister);
         buttonLogin.setOnClickListener(this);
@@ -39,6 +37,7 @@ public class AuthorizationFragment extends BaseFragment {
                 setNextFragmentTag(FragmentsTags.REGISTRATION);
                 break;
         }
+        mainActivityListener.setNextFragmentTag(nextFragmentTag);
         super.onClick(view);
     }
 

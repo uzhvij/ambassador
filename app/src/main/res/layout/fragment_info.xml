@@ -11,9 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Вступление"
         android:gravity="center_vertical|center_horizontal"
-        android:textSize="24sp" />
+        android:background="@android:color/background_light"
+        android:text="Вступление"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/imageViewInfo1"
@@ -29,6 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="Сервис поиска защитников"
+        android:background="@android:color/background_light"
         android:gravity="center_vertical|center_horizontal"
         android:textSize="24sp" />
 
@@ -36,6 +39,7 @@
         android:id="@+id/textViewContext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@android:color/background_light"
         android:layout_weight="1"
         android:gravity="center_vertical|center_horizontal"
         android:text="Теперь Амбассадором бренда может стать\n каждый, а не только знаменитости и звезды\n кино"
@@ -45,6 +49,9 @@
         android:id="@+id/buttonNextFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Далее" />
+        android:background="@android:color/background_light"
+        android:text="Далее"
+        style="@style/WhiteButtons"
+         />
 
 </LinearLayout>

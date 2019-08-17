@@ -21,6 +21,7 @@ public class RegistrationFragment extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_registration, container, false);
         Button buttonLogin = view.findViewById(R.id.buttonLogin);
         buttonLogin.setOnClickListener(this);
@@ -30,6 +31,6 @@ public class RegistrationFragment extends BaseFragment {
     @Override
     public void onClick(View v) {
         DataWorker.getInstance(context).makeRequest(RequestTypes.REGISTRATION);
-        //super.onClick(v);
+        super.onClick(v);
     }
 }
