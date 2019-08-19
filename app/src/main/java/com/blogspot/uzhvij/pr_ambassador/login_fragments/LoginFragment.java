@@ -27,11 +27,14 @@ public class LoginFragment extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_login, container, false);
-        editTextPhoneNumber = view.findViewById(R.id.editTextPhoneNumber);
-        editTextPassword = view.findViewById(R.id.editTextPassword);
-        Button buttonContinue = view.findViewById(R.id.buttonEnter);
-        TextView textViewForgotPassword = view.findViewById(R.id.textViewForgotPassword);
+        thisView = inflater.inflate(R.layout.fragment_login, container, false);
+
+        activateToolbar();
+
+        editTextPhoneNumber = thisView.findViewById(R.id.editTextPhoneNumber);
+        editTextPassword = thisView.findViewById(R.id.editTextPassword);
+        Button buttonContinue = thisView.findViewById(R.id.buttonEnter);
+        TextView textViewForgotPassword = thisView.findViewById(R.id.textViewForgotPassword);
         buttonContinue.setOnClickListener(this);
         textViewForgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +42,7 @@ public class LoginFragment extends BaseFragment {
                 forgotPassword(view);
             }
         });
-        return view;
+        return thisView;
     }
 
     @Override
