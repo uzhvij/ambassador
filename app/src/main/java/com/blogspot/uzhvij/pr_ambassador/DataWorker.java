@@ -51,7 +51,7 @@ public class DataWorker {
         }
         getResponseData(response);
     }
-
+    //ToDo make unsuccess Toast for registration
     private void getResponseData(Call response){
         response.enqueue(
                 new Callback<BaseResponse>() {

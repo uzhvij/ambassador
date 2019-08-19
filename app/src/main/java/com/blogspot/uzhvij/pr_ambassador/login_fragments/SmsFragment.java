@@ -21,9 +21,12 @@ public class SmsFragment extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_sms, container, false);
-        Button buttonContinue = view.findViewById(R.id.buttonContinue);
-        Button buttonGetCode = view.findViewById(R.id.buttonGetCode);
+        thisView = inflater.inflate(R.layout.fragment_sms, container, false);
+
+        activateToolbar();
+
+        Button buttonContinue = thisView.findViewById(R.id.buttonContinue);
+        Button buttonGetCode = thisView.findViewById(R.id.buttonGetCode);
         buttonContinue.setOnClickListener(this);
         buttonGetCode.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,7 +34,7 @@ public class SmsFragment extends BaseFragment {
                 getCodeAgain(view);
             }
         });
-        return view;
+        return thisView;
     }
 
     private void getCodeAgain(View view) {

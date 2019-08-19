@@ -22,10 +22,13 @@ public class RegistrationFragment extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_registration, container, false);
-        Button buttonLogin = view.findViewById(R.id.buttonLogin);
+        thisView = inflater.inflate(R.layout.fragment_registration, container, false);
+
+        activateToolbar();
+
+        Button buttonLogin = thisView.findViewById(R.id.buttonLogin);
         buttonLogin.setOnClickListener(this);
-        return view;
+        return thisView;
     }
 
     @Override
